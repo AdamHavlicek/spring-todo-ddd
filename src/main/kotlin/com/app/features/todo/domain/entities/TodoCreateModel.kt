@@ -1,0 +1,12 @@
+package com.app.features.todo.domain.entities
+
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotEmpty
+
+
+data class UserCreateModel(
+    @field:NotEmpty()
+    val title: String,
+    @field:Min(1)
+    val ownerId: Int,
+)
