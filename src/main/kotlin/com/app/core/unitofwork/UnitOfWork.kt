@@ -1,4 +1,8 @@
 package com.app.core.unitofwork
 
-class UnitOfWork {
+interface IUnitOfWork<out T> {
+
+    fun begin(): Unit
+    fun commit(): Unit
+    fun rollback(): Unit
 }

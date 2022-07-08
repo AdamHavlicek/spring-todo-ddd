@@ -1,5 +1,5 @@
 package com.app.core.exceptions
 
-class EntityNotFound(
+class EntityNotFoundException(
     message: String = "Entity Not Found"
-) : Exception(message = message)
+) : Exception(message)

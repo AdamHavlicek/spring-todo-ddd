@@ -1,22 +1,31 @@
 package com.app.features.user.domain.entities
 
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import io.kotest.assertions.arrow.core.shouldBeRight
+import io.kotest.core.spec.style.ShouldSpec
+import io.kotest.matchers.booleans.shouldBeTrue
+import java.util.Date
 
-import org.junit.jupiter.api.Assertions.*
+internal class UserTests : ShouldSpec({
+    context("MarkUserAsDeleted") {
+        should("return right side when [User.isDeleted] is false") {
+            // Arrange
+            val testedEntity = User(
+                id = 0,
+                createdAt = Date(0),
+                updatedAt = Date(0),
+                email = "test@test.com",
+                isDeleted = false,
+                isActive = true,
+                password = "test",
+                tasks = listOf(0)
+            )
 
-internal class UserTest {
+            // Act
+            val result = testedEntity.markUserAsDeleted()
 
-    @BeforeEach
-    fun setUp() {
+            // Assert
+            result.shouldBeRight()
+            result.tap { user: User -> user.isDeleted.shouldBeTrue() }
+        }
     }
-
-    @AfterEach
-    fun tearDown() {
-    }
-
-    @Test
-    fun markUserAsDeleted() {
-    }
-}
+})

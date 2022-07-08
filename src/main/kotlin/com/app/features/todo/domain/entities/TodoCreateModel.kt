@@ -4,7 +4,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotEmpty
 
 
-data class UserCreateModel(
+data class TodoCreateModel(
     @field:NotEmpty()
     val title: String,
     @field:Min(1)

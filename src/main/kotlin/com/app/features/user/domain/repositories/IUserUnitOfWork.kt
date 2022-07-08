@@ -1,4 +1,5 @@
 package com.app.features.user.domain.repositories
 
-interface IUserUnitOfWork {
-}
+import com.app.core.unitofwork.IUnitOfWork
+
+interface IUserUnitOfWork : IUnitOfWork<IUserRepository> {}
