@@ -19,7 +19,7 @@ class GetTodosRoute(
     override operator fun invoke(): RouterFunction<ServerResponse> {
         return route()
             .GET(
-                "/",
+                "",
                 accept(MediaType.APPLICATION_JSON),
                 {
                     getTodosUseCase().fold(

@@ -26,7 +26,7 @@ class CreateTodoRoute(
 
     override fun invoke(): RouterFunction<ServerResponse> {
         return route().POST(
-            "/",
+            "",
             accept(MediaType.APPLICATION_JSON),
             { request ->
                 request.bodyToMono<TodoCreateModel>().flatMap { data ->
@@ -34,10 +34,9 @@ class CreateTodoRoute(
                         ifLeft = { Mono.error(it) },
                         ifRight = {
                             ServerResponse
-                                .ok()
-                                .headers { httpHeaders ->
-                                    httpHeaders.location = URI("${request.path()}${it.id}")
-                                }
+                                .created(
+                                    URI("${request.path()}/${it.id}")
+                                )
                                 .bodyValue(it)
                         }
                     )
