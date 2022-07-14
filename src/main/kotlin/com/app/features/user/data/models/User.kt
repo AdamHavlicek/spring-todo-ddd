@@ -12,7 +12,7 @@ import com.app.features.user.domain.entities.User as UserEntity
 @DynamicUpdate
 class User(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
     val email: String,
     val password: String,
