@@ -1,6 +1,7 @@
 package com.app.features.user.domain.usecases
 
 import arrow.core.Either
+import arrow.core.flatMap
 import arrow.core.left
 import com.app.core.exceptions.InvalidOperationException
 import com.app.core.usecases.IUseCase
@@ -26,12 +27,13 @@ class CreateUserUseCase(
             tasks = arrayListOf(),
         )
 
-        val existingUser = repository.findByEmail(user.email)
-        if (existingUser.isRight()) {
-            return InvalidOperationException("User already exists with specified email").left()
+        val existingUser = repository.findByEmail(user.email).swap().mapLeft {
+            InvalidOperationException("User already exists with specified email")
         }
 
-        val newUser = repository.create(user)
+        val newUser = existingUser.flatMap {
+            repository.create(user)
+        }
 
         return newUser.map { UserReadModel(user = it) }
     }
