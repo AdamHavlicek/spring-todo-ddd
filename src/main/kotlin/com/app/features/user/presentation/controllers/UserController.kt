@@ -21,7 +21,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.context.annotation.RequestScope
 import java.net.URI
-import javax.validation.Valid
+import jakarta.validation.Valid
 
 
 @RestController

@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
 import java.util.*
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 import com.app.features.user.domain.entities.User as UserEntity
 
 

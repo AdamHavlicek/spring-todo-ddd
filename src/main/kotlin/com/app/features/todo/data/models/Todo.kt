@@ -6,7 +6,7 @@ import com.app.features.todo.domain.entities.Todo as TodoEntity
 import org.hibernate.annotations.DynamicUpdate
 import org.springframework.data.annotation.LastModifiedDate
 import java.util.Date
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity(name = "Todos")
 @DynamicUpdate

@@ -13,5 +13,5 @@ import org.springframework.context.annotation.Bean
 class TodoDDDApplication
 
 fun main(args: Array<String>) {
-    val context = runApplication<TodoDDDApplication>(*args)
+    runApplication<TodoDDDApplication>(*args)
 }

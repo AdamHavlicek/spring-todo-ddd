@@ -2,9 +2,9 @@ package com.app.features.user.domain.entities
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import io.swagger.v3.oas.annotations.media.Schema
-import javax.validation.constraints.Email
-import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.Size
+import jakarta.validation.constraints.Email
+import jakarta.validation.constraints.NotEmpty
+import jakarta.validation.constraints.Size
 
 @Schema(description = "User update DTO")
 @JsonIgnoreProperties(ignoreUnknown = true)

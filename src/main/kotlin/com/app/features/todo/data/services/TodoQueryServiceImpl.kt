@@ -12,10 +12,10 @@ import com.linecorp.kotlinjdsl.querydsl.expression.column
 import com.linecorp.kotlinjdsl.spring.data.listQuery
 import com.linecorp.kotlinjdsl.spring.data.singleQuery
 import org.springframework.stereotype.Service
-import javax.persistence.EntityManager
-import javax.persistence.NoResultException
-import javax.persistence.PersistenceContext
-import javax.transaction.Transactional
+import jakarta.persistence.EntityManager
+import jakarta.persistence.NoResultException
+import jakarta.persistence.PersistenceContext
+import jakarta.transaction.Transactional
 
 @Service
 class TodoQueryServiceImpl(

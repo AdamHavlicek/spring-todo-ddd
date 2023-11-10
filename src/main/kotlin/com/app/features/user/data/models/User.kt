@@ -5,7 +5,7 @@ import com.app.features.user.domain.entities.UserReadModel
 import org.hibernate.annotations.DynamicUpdate
 import org.springframework.data.annotation.LastModifiedDate
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 import com.app.features.user.domain.entities.User as UserEntity
 
 @Entity(name = "Users")

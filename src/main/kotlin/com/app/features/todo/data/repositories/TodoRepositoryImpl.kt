@@ -9,7 +9,7 @@ import com.app.features.todo.domain.repositories.ITodoRepository
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 import com.app.features.todo.domain.entities.Todo as TodoEntity
 
 interface ITodoJpaRepository : JpaRepository<Todo, Int>
