@@ -25,7 +25,7 @@ internal class UserTests : ShouldSpec({
 
             // Assert
             result.shouldBeRight()
-            result.tap { user: User -> user.isDeleted.shouldBeTrue() }
+            result.onRight { user: User -> user.isDeleted.shouldBeTrue() }
         }
     }
 })
