@@ -2,7 +2,6 @@ package com.app.features.user.domain.usecases
 
 import arrow.core.Either
 import arrow.core.flatMap
-import arrow.core.left
 import com.app.core.exceptions.InvalidOperationException
 import com.app.core.usecases.IUseCase
 import com.app.features.user.domain.entities.User

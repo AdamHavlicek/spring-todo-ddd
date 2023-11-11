@@ -1,11 +1,12 @@
 package com.app.features.user.data.models
 
+import arrow.core.*
 import com.app.features.todo.data.models.Todo
 import com.app.features.user.domain.entities.UserReadModel
+import jakarta.persistence.*
 import org.hibernate.annotations.DynamicUpdate
 import org.springframework.data.annotation.LastModifiedDate
 import java.util.*
-import jakarta.persistence.*
 import com.app.features.user.domain.entities.User as UserEntity
 
 @Entity(name = "Users")
@@ -32,7 +33,7 @@ class User(
         fetch = FetchType.LAZY,
         orphanRemoval = true,
     )
-    val tasks: List<Todo> = emptyList()
+    lateinit var tasks: List<Todo>
 
     constructor(user: UserEntity) : this(
         user.id,
@@ -45,13 +46,15 @@ class User(
     )
 
     fun toDomainEntity(): UserEntity {
+        val maybeTasks = Option.catch({ none() }) { tasks.map { it.id } }
+
         return UserEntity(
             id = id,
             email = email,
             password = password,
             createdAt = createdAt,
             updatedAt = updatedAt,
-            tasks = tasks.map { it.id },
+            tasks = maybeTasks.getOrElse { emptyList() },
             isActive = isActive,
             isDeleted = isDeleted
         )
